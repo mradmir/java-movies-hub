@@ -10,7 +10,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
-import java.util.Collections;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -35,7 +35,8 @@ public class MoviesApiTest {
     static void afterAll() {
         // !!! Реализуйте метод afterAll
         if (server != null) {
-            server.stop();}
+            server.stop();
+        }
 
     }
 
