@@ -10,23 +10,14 @@ public class MoviesServer {
 
     public MoviesServer() {
         try {
-            // создайте сервер
             server = HttpServer.create(new InetSocketAddress(8080), 0);
+            // Регистрируем "/" — хендлер получит полный путь и разберёт его сам
             server.createContext("/movies", new MoviesHandler());
         } catch (IOException e) {
             throw new RuntimeException("Не удалось создать HTTP-сервер", e);
         }
     }
 
-    public void start() {
-        // запустите сервер
-        server.start();
-        System.out.println("Сервер запущен");
-    }
-
-    public void stop() {
-        // остановите сервер
-        server.stop(0);
-        System.out.println("Сервер остановлен");
-    }
+    public void start() { server.start();  System.out.println("Сервер запущен"); }
+    public void stop()  { server.stop(0);  System.out.println("Сервер остановлен"); }
 }
